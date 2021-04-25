@@ -135,3 +135,56 @@
     }
   }
 }
+
+.currentEpisodeDetail {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .currentEpisodeDetail {
+    color: var(--font-player);
+    text-decoration: none;
+    margin-bottom: 1rem;
+
+    display: inline-block;
+    white-space: nowrap;
+
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: banner;
+  }
+
+  .playerContainer {
+    overflow: hidden;
+
+    width: 100%;
+    padding: 1rem;
+    height: 10rem;
+
+    header,
+    .currrentEpisode,
+    .emptyPlayer {
+      display: none;
+    }
+  }
+
+  .playerContainer.hasEpisode {
+    height: 12rem;
+  }
+}
+
+@keyframes banner {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: translateX(calc(-100% + 93vw));
+  }
+  100% {
+    transform: translateX(calc(-100% + 93vw));
+  }
+}

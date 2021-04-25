@@ -1,20 +1,47 @@
 import format from 'date-fns/format';
 import ptBR from 'date-fns/locale/pt-BR';
+import { useTheme } from '../../contexts/ThemeContext';
 
 import styles from './styles.module.scss';
 
 export function Header() {
+  const { currentTheme, toggleTheme } = useTheme();
+
   const currentDate = format(new Date(), 'EEEEEE, d MMM', {
     locale: ptBR,
   });
 
   return (
     <header className={styles.headerContainer}>
-      <img src="/logo.svg" alt="Podcastr" />
+      <img src="/logo.svg" alt="Podcastr" className={styles.logo} />
+
+      <img
+        src="/logo2.svg"
+        alt="Podcastr"
+        className={styles.logoMobile}
+      />
 
       <p>O melhor para você ouvir, sempre</p>
 
       <span>{currentDate}</span>
+
+      <button
+        type="button"
+        className={styles.theme}
+        onClick={toggleTheme}
+      >
+        {currentTheme === 'dark' ? (
+          <img
+            src="/light.svg"
+            alt="Light Mode"
+          />
+        ) : (
+          <img
+            src="/dark.svg"
+            alt="Dark Mode"
+          />
+        )}
+      </button>
     </header>
   );
 }

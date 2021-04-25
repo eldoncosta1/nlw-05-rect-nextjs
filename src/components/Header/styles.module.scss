@@ -8,7 +8,6 @@
   padding: 2rem 4rem;
 
   border-bottom: 1px solid var(--gray-100);
-
   p {
     margin-left: 2rem;
     padding: 0.25rem 0 0.25rem 2rem;
@@ -18,5 +17,38 @@
   span {
     margin-left: auto;
     text-transform: capitalize;
+  }
+
+  .theme {
+    margin-left: 2rem;
+    background: transparent;
+    border: none;
+    font-size: 0;
+  }
+}
+
+.logo {
+  display: block;
+}
+
+.logoMobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .headerContainer {
+    padding: 1rem 2rem;
+
+    .theme {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logoMobile {
+    display: block;
   }
 }
